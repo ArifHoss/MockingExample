@@ -20,5 +20,9 @@ class CalculatorTest {
     void sumOfTwoNumbers(){
         assertEquals (5,calculator.add ("2,3"));
     }
+    @Test
+    void sumOfUnkhownAmoutOfNumber(){
+        assertEquals (6,calculator.add ("3,2,1"));
+    }
 
 }
