@@ -24,5 +24,9 @@ class CalculatorTest {
     void sumOfUnkhownAmoutOfNumber(){
         assertEquals (6,calculator.add ("3,2,1"));
     }
+    @Test
+    void addNewLines(){
+        assertEquals (6,calculator.add ("1\n2,3"));
+    }
 
 }
