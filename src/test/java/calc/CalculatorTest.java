@@ -43,7 +43,7 @@ class CalculatorTest {
             calculator.add ("-1");
             fail ();
         }catch (Exception e){
-        assertEquals (e.getMessage (),"-1");
+        assertEquals (e.getMessage (),"-1 Negative not allowed");
 
         }
 
@@ -53,7 +53,7 @@ class CalculatorTest {
         try {
             calculator.add ("-1,2,-2");
         } catch (Exception e) {
-            assertEquals (e.getMessage (),"-1");
+            assertEquals (e.getMessage (),"-1 Negative not allowed");
         }
 
     }

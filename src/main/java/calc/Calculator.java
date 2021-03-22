@@ -12,6 +12,7 @@ public class Calculator {
     }
 
     private String[] values ( String string ) {
+        //return numbers (string).split (delimiter (string));
         return numbers (string).split (delimiter (string));
     }
 
@@ -50,7 +51,7 @@ public class Calculator {
     private Integer toInt ( String value ) {
         Integer integer = Integer.valueOf (value);
         if (integer<0)
-            throw new RuntimeException (value);
+            throw new RuntimeException (value+" Negative not allowed");
         return integer;
     }
 
