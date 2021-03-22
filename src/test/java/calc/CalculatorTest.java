@@ -37,4 +37,16 @@ class CalculatorTest {
     void supportDifferntDelimiter(){
         assertEquals (3,calculator.add ("//;\n1,2"));
     }
+    @Test
+    void negativeNotAllowed(){
+        try {
+            calculator.add ("-1");
+            fail ();
+        }catch (Exception e){
+        assertEquals (e.getMessage (),"-1");
+
+        }
+
+    }
+
 }

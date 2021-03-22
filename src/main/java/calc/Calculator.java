@@ -32,9 +32,16 @@ public class Calculator {
     private int sumOfValue ( String[] values ) {
         int total = 0;
         for (String value : values) {
-            total += Integer.valueOf (value);
+            total += toInt (value);
         }
         return total;
+    }
+
+    private Integer toInt ( String value ) {
+        Integer integer = Integer.valueOf (value);
+        if (integer<0)
+            throw new RuntimeException (value);
+        return integer;
     }
 
 
