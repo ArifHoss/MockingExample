@@ -4,15 +4,17 @@ public class Calculator {
 
     public int add ( String number ) {
 
-        String[] strings = number.split ("\n|,");
-        int sum = 0;
-
-        if (number.isEmpty ()) {
+        if (number.isEmpty ())
             return 0;
-        } else{
-            for (String s: strings) {
-                sum += Integer.parseInt (s);
-            }
-        } return sum;
+        return sumOfValue (number.split (",|\n"));
     }
+
+    private int sumOfValue ( String[] values ) {
+        int sum = 0;
+        for (String s : values) {
+            sum += Integer.valueOf (s);
+        }
+        return sum;
+    }
+
 }
