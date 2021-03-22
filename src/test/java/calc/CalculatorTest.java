@@ -48,5 +48,14 @@ class CalculatorTest {
         }
 
     }
+    @Test
+    void noNegativeValue(){
+        try {
+            calculator.add ("-1,2,-2");
+        } catch (Exception e) {
+            assertEquals (e.getMessage (),"-1");
+        }
+
+    }
 
 }

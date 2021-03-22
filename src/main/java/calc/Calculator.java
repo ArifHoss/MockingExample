@@ -6,7 +6,7 @@ public class Calculator {
 
         if (number.length () == 0)
             return 0;
-
+        checkNegative (values(number));
         return sumOfValue (values (number));
 
     }
@@ -35,6 +35,16 @@ public class Calculator {
             total += toInt (value);
         }
         return total;
+    }
+
+    private void checkNegative ( String[] values ) {
+        String negatives = "";
+        for (String value: values) {
+            if(toInt (value)<0)
+                negatives+=","+value;
+        }
+        if (negatives.length () >0)
+            throw new RuntimeException (negatives.substring (1));
     }
 
     private Integer toInt ( String value ) {
