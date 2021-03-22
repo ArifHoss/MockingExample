@@ -4,17 +4,38 @@ public class Calculator {
 
     public int add ( String number ) {
 
-        if (number.isEmpty ())
+        if (number.length () == 0)
             return 0;
-        return sumOfValue (number.split (",|\n"));
+
+        return sumOfValue (values (number));
+
+    }
+
+    private String[] values ( String string ) {
+        return numbers (string).split (delimiter (string));
+    }
+
+    private String delimiter ( String string ) {
+        String delimiter = ",|;|\n";
+        if (string.startsWith ("//" + delimiter))
+            delimiter = string.substring (2 , 4);
+        return delimiter;
+    }
+
+    private String numbers ( String string ) {
+        String values = string;
+        if (string.startsWith ("//"))
+            values = string.substring (4);
+        return values;
     }
 
     private int sumOfValue ( String[] values ) {
-        int sum = 0;
-        for (String s : values) {
-            sum += Integer.valueOf (s);
+        int total = 0;
+        for (String value : values) {
+            total += Integer.valueOf (value);
         }
-        return sum;
+        return total;
     }
+
 
 }
