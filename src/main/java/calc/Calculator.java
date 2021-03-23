@@ -33,6 +33,10 @@ public class Calculator {
     private int sumOfValue ( String[] values ) {
         int total = 0;
         for (String value : values) {
+            if(toInt (value)>1000){
+                continue;
+            }
+            //Here continue is telling us for loop will skip value more than 1000 will.
             total += toInt (value);
         }
         return total;

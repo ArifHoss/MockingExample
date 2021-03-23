@@ -57,5 +57,9 @@ class CalculatorTest {
         }
 
     }
+    @Test
+    void numberBiggerThan1000Ignore(){
+        assertEquals (4,calculator.add ("2,1001,2,1002"));
+    }
 
 }
