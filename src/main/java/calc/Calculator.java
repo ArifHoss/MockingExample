@@ -35,18 +35,3 @@ public class Calculator {
     }
 
 }
-/*
- int sum = 0;
-        for (int a : numb) {
-            if(a>1000){
-                continue;
-            }
-            sum += a;
-            if(a<0){
-                throw new RuntimeException(a + " negatives not allowed");
-
-            }
-        }
-        return sum;
-    }
- */
