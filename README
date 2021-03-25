@@ -1,0 +1,6 @@
+Syftet med laboration 2 är att träna på att skapa ett java projekt med tillhörande tester.
+Byggande av projektet och körning av testerna ska ske med hjälp av byggverktyget maven.
+Laborationen består av 3 uppgifter som lämpligen utförs i samma projekt och antingen
+ensam eller tillsammans i grupp. Vid arbete i grupp ska gruppens medlemmar turas om att
+skriva koden och alla ska därför när uppgiften är klar bidragit med ungefär samma antal
+commits.

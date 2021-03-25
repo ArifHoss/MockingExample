@@ -1,63 +1,52 @@
 package calc;
 
+import java.util.Arrays;
+
 public class Calculator {
 
     public int add ( String number ) {
+        String [] strings = number.split ("[^-\\d]");
 
-        if (number.length () == 0)
-            return 0;
-        checkNegative (values(number));
-        return sumOfValue (values (number));
+        int [] toInt =
+        Arrays.stream (strings)
+                .filter (t -> !t.isEmpty ())
+                .mapToInt (Integer::parseInt)
+                .toArray ();
 
-    }
+        return sumOfValue (toInt);
 
-    private String[] values ( String string ) {
-        //return numbers (string).split (delimiter (string));
-        return numbers (string).split (delimiter (string));
-    }
+  }
 
-    private String delimiter ( String string ) {
-        String delimiter = ",|;|\n";
-        if (string.startsWith ("//" + delimiter))
-            delimiter = string.substring (2 , 4);
-        return delimiter;
-    }
-
-    private String numbers ( String string ) {
-        String values = string;
-        if (string.startsWith ("//"))
-            values = string.substring (4);
-        return values;
-    }
-
-    private int sumOfValue ( String[] values ) {
+    private int sumOfValue ( int[] toInt ) {
         int total = 0;
-        for (String value : values) {
-            if(toInt (value)>1000){
+        for (int value : toInt) {
+
+            if(value > 1000){
                 continue;
+
             }
             //Here continue is telling us for loop will skip value more than 1000 will.
-            total += toInt (value);
+            total += value;
+            if(value<0){
+                throw new RuntimeException (value + " Negative not allowed");
+            }
         }
         return total;
     }
 
-    private void checkNegative ( String[] values ) {
-        String negatives = "";
-        for (String value: values) {
-            if(toInt (value)<0)
-                negatives+=","+value;
-        }
-        if (negatives.length () >0)
-            throw new RuntimeException (negatives.substring (1));
-    }
-
-    private Integer toInt ( String value ) {
-        Integer integer = Integer.valueOf (value);
-        if (integer<0)
-            throw new RuntimeException (value+" Negative not allowed");
-        return integer;
-    }
-
-
 }
+/*
+ int sum = 0;
+        for (int a : numb) {
+            if(a>1000){
+                continue;
+            }
+            sum += a;
+            if(a<0){
+                throw new RuntimeException(a + " negatives not allowed");
+
+            }
+        }
+        return sum;
+    }
+ */

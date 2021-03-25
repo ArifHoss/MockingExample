@@ -1,6 +1,8 @@
 package calc;
 
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatExceptionOfType;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -35,8 +37,9 @@ class CalculatorTest {
 
     @Test
     void supportDifferntDelimiter(){
-        assertEquals (3,calculator.add ("//;\n1,2"));
+        assertEquals (3,calculator.add ("//;\n1,2"));//("//***\n1***2***3")
     }
+
     @Test
     void negativeNotAllowed(){
         try {
@@ -48,6 +51,18 @@ class CalculatorTest {
         }
 
     }
+
+    @Test
+    void negativeNotAllowed2(){
+        //AssetJ
+        assertThatExceptionOfType(RuntimeException.class)
+                .isThrownBy (()-> calculator.add ("-1"))
+                .withMessage ("-1 Negative not allowed");
+        //Jnuit5 assert
+        //var ru = assertThrows (RuntimeException.class,() ->calculator.add ("-1"));
+        //assertEquals ("-1 Nagative not allowed", ex.getMessage());
+    }
+
     @Test
     void noNegativeValue(){
         try {
@@ -57,9 +72,15 @@ class CalculatorTest {
         }
 
     }
+
     @Test
     void numberBiggerThan1000Ignore(){
         assertEquals (4,calculator.add ("2,1001,2,1002"));
+    }
+
+    @Test
+    void acceptAnyLength(){
+        assertEquals (6,calculator.add ("//***\n1***2***3"));
     }
 
 }
