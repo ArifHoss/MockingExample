@@ -1,6 +1,8 @@
 package calc;
 
 import org.junit.jupiter.api.Test;
+
+import static org.assertj.core.api.Assertions.as;
 import static org.junit.jupiter.api.Assertions.*;
 import static org.assertj.core.api.Assertions.assertThat;
 
@@ -65,5 +67,10 @@ class CalculatorTest {
     @Test
     void acceptAnyLength(){
         assertEquals (6,calculator.add ("//*%\n1*2%3"));
+    }
+
+    @Test
+    void handleMultipleDelimiterAnyLength(){
+        assertEquals (6,calculator.add ("*;,1%2#3"));
     }
 }
