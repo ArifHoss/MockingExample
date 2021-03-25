@@ -16,6 +16,7 @@ public class EmployeeManager {
 		List<Employee> employees = employeeRepository.findAll();
 		int payments = 0;
 		for (Employee employee : employees) {
+
 			try {
 				bankService.pay(employee.getId(), employee.getSalary());
 				employee.setPaid(true);
