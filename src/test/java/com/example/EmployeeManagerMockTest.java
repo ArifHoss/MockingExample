@@ -26,7 +26,8 @@ class EmployeeManagerMockTest {
         when (employeeRepository.findAll ()).thenReturn (List.of (new Employee ("1",30000),
                 new Employee ("2", 35000)));
 
-        assertFalse(employeeManager.payEmployees ()==0);
+        //assertFalse(employeeManager.payEmployees ()==0);
+        assertNotEquals (employeeManager.payEmployees () , 0);
 
     }
 }
