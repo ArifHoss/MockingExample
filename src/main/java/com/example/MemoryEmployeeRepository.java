@@ -5,7 +5,8 @@ import java.util.List;
 
 public class MemoryEmployeeRepository implements EmployeeRepository {
 
-    private List<Employee> employees = new ArrayList<> ();
+    private List<Employee> employees = new ArrayList<>();
+
 
     @Override
     public List<Employee> findAll () {
