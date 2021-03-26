@@ -1,15 +1,13 @@
 package com.example;
 
 import org.junit.jupiter.api.Test;
-import org.mockito.Mockito;
 
 import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.mock;
-import static org.mockito.Mockito.when;
+import static org.mockito.Mockito.*;
 
-class EmployeeManagerMockTest {
+class TestMockEmployeeManager {
     static EmployeeRepository employeeRepository = mock(EmployeeRepository.class);
     static BankService bankService = mock (BankService.class);
     static EmployeeManager employeeManager = new EmployeeManager (employeeRepository,bankService);
@@ -28,6 +26,7 @@ class EmployeeManagerMockTest {
 
         //assertFalse(employeeManager.payEmployees ()==0);
         assertNotEquals (employeeManager.payEmployees () , 0);
+        //doThrow (RuntimeException.class).when (employeeManager.payEmployees ());
 
     }
 }
