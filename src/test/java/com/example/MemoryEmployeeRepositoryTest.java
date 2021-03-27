@@ -14,19 +14,29 @@ class MemoryEmployeeRepositoryTest {
 
         MemoryEmployeeRepository memoryEmployeeRepository = new MemoryEmployeeRepository ();
 
-        var actual = memoryEmployeeRepository.save (new Employee ("3" , 30000));
+        var actual = memoryEmployeeRepository.save (new Employee ("4" , 30000));
 
         assertThat(memoryEmployeeRepository.findAll().contains (actual));
 
     }
 
     @Test
-    void findSave(){
+    void updateInfo (){
 
         MemoryEmployeeRepository employeeRepository = new MemoryEmployeeRepository ();
-        employeeRepository.save (new Employee ("3",20000));
-        assertEquals (1,employeeRepository.findAll ().size ());
+        employeeRepository.save (new Employee ("8",20000));
+        assertEquals (4,employeeRepository.findAll ().size ());
 
     }
+
+    @Test
+    void updateEmployeeInfo (){
+
+        MemoryEmployeeRepository employeeRepository = new MemoryEmployeeRepository ();
+        var actual = employeeRepository.save (new Employee ("1",12000));
+        assertEquals (actual,employeeRepository.findAll ().get (0));
+
+    }
+
 
 }
