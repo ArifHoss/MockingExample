@@ -9,12 +9,18 @@ class MemoryEmployeeRepositoryIT {
 
     @Test
     void integrationstest () {
+
         MemoryEmployeeRepository employeeRepository = new MemoryEmployeeRepository ();
+
         BankService bankService = new TestClassBankService ();
-        employeeRepository.save (new Employee ("1",12000));
+
         EmployeeManager employeeManager = new EmployeeManager (employeeRepository , bankService);
 
-        assertThat (employeeManager.payEmployees ()).isEqualTo (employeeRepository);
+       //var actual= employeeRepository.save (new Employee ("1",12000));
+        //assertEquals (actual,employeeRepository.findAll ().get (1));
+        //assertThat (employeeManager.payEmployees ()).isNotNull ();
+        assertEquals (3,employeeManager.payEmployees ());
+
     }
 
 }
