@@ -16,7 +16,10 @@ class EmployeeManagerTest {
 
     @Test
     void setPaymentFalse(){
-        assertNotEquals (employeeManager.payEmployees () , 0);
+        EmployeeRepository employeeRepositoryEmpty = new EmployeeRepositoryTestEmpty ();
+        EmployeeManager employeeManager1 = new EmployeeManager (employeeRepositoryEmpty,bankService);
+        //assertThrows (RuntimeException.class,()->employeeManager1.payEmployees ());
+        assertThrows (RuntimeException.class, employeeManager1::payEmployees);
     }
 
 }
